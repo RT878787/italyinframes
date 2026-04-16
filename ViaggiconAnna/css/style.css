@@ -1,0 +1,826 @@
+/* RESET BASE */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* BODY */
+body {
+  background-color: #f0f8f8;
+}
+
+/* MENU */
+header {
+  width: 100%;
+  background-color: #64c8c8;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  padding: 15px 0;
+}
+
+.main-nav li {
+  margin: 0 20px;
+}
+
+.main-nav a {
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.main-nav a:hover {
+  color: #fff;
+}
+
+header {
+  transition: transform 0.3s ease;
+}
+
+header.hide {
+  transform: translateY(-100%);
+}
+
+/* HERO SECTION */
+.hero {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background: url("../images/wandering-italy-com-hero-image.webp") no-repeat
+    center center/cover;
+}
+
+.hero h1 {
+  position: relative;
+  opacity: 0;
+  transition: all 1s ease;
+  font-size: 4rem;
+  color: #fff;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.hero-wandering {
+  left: -200px;
+}
+
+.hero-italy {
+  right: -200px;
+  font-weight: 300;
+  letter-spacing: 2px;
+}
+
+.in {
+  font-size: 0.6em;
+  opacity: 0.8;
+  margin-right: 5px;
+}
+
+/* HOME TEXT */
+.home-text {
+  max-width: 900px;
+  margin: 120px auto 50px auto;
+  padding: 0 20px;
+  line-height: 1.6;
+  font-size: 1.1rem;
+}
+
+/* TESTO ABOUT */
+.about-text p {
+  margin-bottom: 20px; /* spazio tra paragrafi */
+  line-height: 1.6; /* altezza riga leggibile */
+  font-size: 1.1rem; /* stessa dimensione del font della home */
+}
+
+.about-text h2 {
+  margin: 40px 0 20px 0; /* spazio sopra e sotto H2 */
+  font-size: 2rem; /* stessa dimensione H2 home */
+  color: #e63946; /* colore coerente con home */
+  text-align: center; /* centrato come in home, cambialo in 'left' se preferisci */
+}
+
+/* CAROUSEL 3D */
+.carousel3D-section {
+  width: 100%;
+  max-width: 1200px;
+  margin: 50px auto;
+  perspective: 1000px;
+}
+
+.carousel {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  transform-style: preserve-3d;
+}
+
+.carousel-item {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform-style: preserve-3d;
+  transform: translateX(-50%) rotateY(0deg) translateZ(0);
+  opacity: 0;
+  text-align: center;
+  transition:
+    transform 1s,
+    opacity 0.5s;
+}
+
+.carousel-item.front {
+  opacity: 1;
+  z-index: 10;
+}
+
+.carousel-item img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  display: block;
+  margin: 0 auto;
+}
+
+/* DIDASCALIE CAROUSEL */
+.carousel-caption {
+  position: absolute;
+  bottom: -30px;
+  width: 100%;
+  text-align: center;
+  font-size: 0.9rem;
+  font-style: italic;
+  color: rgba(0, 0, 0, 0.7);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.carousel-item.front .carousel-caption {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .carousel {
+    height: auto;
+    transform: none;
+  }
+
+  .carousel-item {
+    position: relative;
+    opacity: 1;
+    transform: none;
+    margin-bottom: 20px;
+  }
+
+  .carousel-item img {
+    width: 100%;
+    height: auto;
+  }
+
+  .carousel-caption {
+    position: static;
+    margin-top: 10px;
+    opacity: 1;
+  }
+}
+
+/* GUIDES SECTION */
+.guides {
+  max-width: 1200px;
+  margin: 50px auto 80px auto;
+  padding: 0 20px;
+}
+
+.guides h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: #e63946;
+  margin-bottom: 30px;
+}
+
+.guides-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.guide-card {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s;
+}
+
+.guide-card:hover {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin: 10px 0;
+  transition: transform 0.3s ease;
+}
+
+.guide-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin: 10px 0;
+  transition: transform 0.3s ease;
+}
+
+.guide-card img:hover {
+  transform: scale(1.03);
+}
+
+.guide-card h3 {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.guide-card p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.4;
+}
+
+.guide-btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: #e63946;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.guide-btn:hover {
+  background-color: #d62828;
+}
+
+.home-text-end {
+  max-width: 900px;
+  margin: 40px auto 50px auto;
+  padding: 0 20px;
+}
+
+/* FOOTER */
+.site-footer {
+  background-color: #ffa66b;
+  color: #fff;
+  padding: 40px 20px 20px 20px;
+  font-family: Arial, sans-serif;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto 20px auto;
+  gap: 60px;
+}
+
+.footer-left,
+.footer-right {
+  flex: 0 1 auto;
+}
+
+.footer-center {
+  flex: 1;
+  text-align: center;
+  max-width: 500px;
+  margin-top: 20px;
+}
+
+.footer-left {
+  text-align: right;
+}
+
+.footer-right {
+  text-align: left;
+}
+
+.footer-left ul {
+  list-style: disc;
+  padding-left: 20px;
+  margin: 0;
+}
+
+.footer-right ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-left li,
+.footer-right li {
+  margin-bottom: 10px;
+}
+
+.footer-left a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-left a:hover {
+  color: #333;
+}
+
+.footer-center p {
+  text-align: center;
+  line-height: 1.5;
+  font-weight: 600;
+  font-style: italic;
+}
+
+.footer-right li {
+  line-height: 1.5;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.footer-right li:hover {
+  color: #333;
+}
+
+.footer-bottom {
+  text-align: center;
+  font-size: 0.85rem;
+  opacity: 0.8;
+  margin-top: 20px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .guides {
+    margin-bottom: 60px;
+  }
+
+  .footer-top {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .footer-left,
+  .footer-center,
+  .footer-right {
+    flex: 1 1 auto;
+  }
+}
+
+/* Testo sotto le guide - versione definitiva responsive */
+.home-text-end p {
+  font-size: 1.1rem; /* stessa dimensione dei paragrafi principali */
+  line-height: 1.6; /* distanza tra le righe coerente */
+  margin-top: 40px; /* spazio dai rettangoli sopra su desktop */
+  margin-bottom: 20px; /* spazio coerente sotto il paragrafo */
+  color: #333; /* colore testo coerente con il resto */
+  max-width: 900px; /* limite di larghezza come gli altri paragrafi */
+  margin-left: auto; /* centratura orizzontale */
+  margin-right: auto; /* centratura orizzontale */
+  text-align: left; /* testo a sx */
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .home-text-end p {
+    font-size: 1rem; /* leggermente più piccolo su mobile */
+    margin-top: 30px; /* spazio leggermente ridotto su mobile */
+    padding: 0 15px; /* padding laterale per non toccare i bordi */
+  }
+}
+
+/* About Cover Narrow (con margini laterali) */
+.about-cover-narrow {
+  max-width: 900px; /* circa 4cm margine laterale desktop */
+  margin: 120px auto 50px auto;
+}
+.about-cover-narrow img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+}
+
+/* About Text Narrow */
+.about-text-narrow {
+  max-width: 900px;
+  margin: 40px auto 60px auto;
+  padding: 0 20px;
+  line-height: 1.6;
+  text-align: left; /* testo allineato a sinistra */
+}
+
+/* About Gallery (uguale a full-width) */
+.about-gallery {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+.about-gallery img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+.about-gallery img:hover {
+  transform: scale(1.05);
+}
+.gallery-item .caption {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #555;
+  margin-top: 8px;
+  line-height: 1.4;
+  font-style: italic;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .about-gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+/* Mobile */
+@media (max-width: 768px) {
+  .about-gallery {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Spaziatura tra paragrafi nella pagina About */
+.about-text-narrow p {
+  margin-bottom: 20px; /* distanza tra paragrafi */
+  text-align: center; /* centratura del testo */
+}
+
+/* Spaziatura tra H2 e paragrafi */
+.about-text-narrow h2 {
+  margin-top: 40px; /* spazio sopra H2 */
+  margin-bottom: 20px; /* spazio sotto H2 */
+  text-align: center; /* H2 centrato */
+}
+
+/* Eventuale centratura del testo dopo gallery */
+.about-gallery-section {
+  text-align: center;
+}
+
+/* =============================== */
+/* CSS MAGAZINE ARTICLE */
+/* =============================== */
+.magazine-article {
+  max-width: 900px;
+  margin: 100px auto 60px auto;
+  padding: 0 20px;
+  font-family: Arial, sans-serif;
+  line-height: 1.7;
+  color: #333;
+}
+
+.magazine-article h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #064663;
+}
+
+.magazine-article h2 {
+  font-size: 2rem;
+  margin: 40px 0 20px 0;
+  text-align: center;
+  color: #e63946;
+  border-bottom: 2px solid #e63946;
+  padding-bottom: 5px;
+}
+
+.magazine-article h3 {
+  font-size: 1.4rem;
+  margin: 30px 0 15px 0;
+  text-align: center;
+  color: #e63946;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.magazine-article p {
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+}
+
+.magazine-article img {
+  width: 100%;
+  height: auto;
+  margin: 20px 0;
+  border-radius: 10px;
+}
+
+.magazine-article .caption {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: #555;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.magazine-article table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 30px 0;
+}
+
+.magazine-article th,
+.magazine-article td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: left;
+}
+
+.magazine-article th {
+  background-color: #f7d6d6;
+}
+
+.magazine-article tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.cta {
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin: 50px 0;
+  padding: 20px;
+  background-color: #ffe5e5;
+  border-left: 5px solid #e63946;
+  border-radius: 8px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .magazine-article h1 {
+    font-size: 2rem;
+  }
+  .magazine-article h2 {
+    font-size: 1.5rem;
+  }
+  .magazine-article p {
+    font-size: 1rem;
+  }
+}
+
+/* Magazine hero */
+.magazine-hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1100px;
+  margin: 80px auto 50px;
+  padding: 0 20px;
+  gap: 60px;
+}
+
+.magazine-hero-left h2 {
+  font-size: 3.2rem;
+  margin: 0;
+  color: #000;
+  letter-spacing: -1px;
+}
+
+.magazine-tagline {
+  display: block;
+  margin-top: 8px;
+  font-size: 1rem;
+  color: #888;
+  letter-spacing: 1px;
+}
+
+.magazine-hero-right p {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: #555;
+  max-width: 520px;
+  margin: 0;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .magazine-hero {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .magazine-hero-left h2 {
+    font-size: 2.4rem;
+  }
+}
+
+/* Magazine grid */
+.magazine-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.magazine-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  background: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.magazine-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+.magazine-item img:hover {
+  transform: scale(1.05);
+}
+
+.magazine-item h2 {
+  margin: 0 0 10px 0;
+  font-size: 1.2rem;
+  line-height: 1.3;
+}
+
+.magazine-item p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .magazine-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .magazine-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== ARTICLE META ===== */
+.article-meta {
+  display: inline-block;
+
+  font-size: 0.95rem;
+  color: #222;
+  font-weight: 400;
+  letter-spacing: 0.3px;
+
+  padding: 10px 18px;
+  margin: 10px auto 30px auto;
+
+  background: #fff;
+  border: 1px solid #eaeaea;
+  border-radius: 999px;
+
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+/* CENTRATURA */
+.article-meta-wrapper {
+  text-align: center;
+}
+
+/* REGOLE LINK  */
+.article-meta a {
+  color: #e63946;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.article-meta a:hover {
+  text-decoration: underline;
+}
+
+/* CONTACT HERO */
+.contact-hero {
+  text-align: center;
+  margin: 80px auto 40px;
+  padding: 0 20px;
+}
+
+.contact-hero h2 {
+  font-size: 2.8rem;
+  margin-bottom: 10px;
+}
+
+.contact-hero p {
+  font-size: 1.1rem;
+  color: #555;
+}
+
+/* CONTACT CONTAINER */
+.contact-container {
+  max-width: 600px;
+  margin: 0 auto 80px;
+  padding: 0 20px;
+}
+
+/* FORM */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: #1d3557;
+}
+
+/* BUTTON */
+.contact-form button {
+  padding: 12px;
+  background-color: #1d3557;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: #16324f;
+}
+
+/* Giscus */
+#disqus_thread,
+.giscus {
+  max-width: 900px;
+  margin: 80px auto 0 auto;
+  padding: 25px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  font-family: inherit;
+  font-size: 16px;
+}
+
+.giscus-frame {
+  border: none !important;
+}
+
+.comments-divider {
+  width: 60%;
+  margin: 60px auto 30px auto;
+  border: none;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
